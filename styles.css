@@ -1,0 +1,117 @@
+html, body {
+    width:100%;
+    margin:0;
+    overflow-x:hidden;
+}
+
+.icarus {
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-image: url('icarus2.gif');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    transition: transform .75s ease;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(209, 238, 239);
+    overflow: hidden;
+    z-index: 0;
+}
+.sun-text {
+    position: fixed;
+    top: 70px;
+    left: 94%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    color: rgb(246, 228, 114);
+    text-align: center;
+    font-family: 'Vivaldi', script;
+    z-index: 3;
+    pointer-events: none;
+}
+#halo {   
+    position:fixed;
+    height:800px;
+    width:800px;
+    top:50px;
+    left:95%;
+    transform: translate(-50%, -50%);
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(244, 234, 121, 0.75) 0%, rgba(213, 148, 19, 0) 60%);
+    transition: transform 2s ease;
+    pointer-events: none;
+}
+.sun {
+    position: fixed;
+    top: 50px;
+    left: 95%;
+    width: 250px;
+    height: 250px;
+    background-color:rgb(255, 246, 150);
+    background-position: center;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+:root {
+--cloud-tile-width: 1500px;
+}
+.cloud-container {
+    position: absolute;
+    bottom: -110px; 
+  left: 0;
+  width: 100vw; 
+  height: 474px; 
+  overflow: hidden;
+  z-index: 3;
+}
+.cloud-track {
+  width: 100%;
+  height: 100%;
+  background-image: url('cloud_1500width.png'); 
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: left bottom;
+  animation: scrollClouds 25s linear infinite;
+  z-index: 3;
+  overflow: hidden;
+}
+@keyframes scrollClouds {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: calc(-1 * var(--cloud-tile-width));
+  }
+}
+.sun:hover {
+    cursor: pointer;
+}
+
+.sun:hover ~ .icarus { 
+    transform: translate(-50%, -120%);
+}
+.background-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    color: rgb(139, 174, 235);
+    text-align: center;
+    font-family: 'Vivaldi', script;
+    z-index:-3;
+    pointer-events: none;
+    opacity: 0.06;
+}
